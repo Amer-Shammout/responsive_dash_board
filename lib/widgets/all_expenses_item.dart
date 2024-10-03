@@ -12,9 +12,11 @@ class AllExpensesItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isSelected
-        ? ActiveAllExpensesItem(itemModel: itemModel)
-        : InActiveAllExpensesItem(itemModel: itemModel);
+    return AnimatedCrossFade(
+        firstChild: InActiveAllExpensesItem(itemModel: itemModel),
+        secondChild: ActiveAllExpensesItem(itemModel: itemModel),
+        crossFadeState:
+            isSelected ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+        duration: Duration(milliseconds: 400));
   }
 }
-
