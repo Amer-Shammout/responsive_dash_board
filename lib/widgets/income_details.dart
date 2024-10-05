@@ -5,7 +5,7 @@ import 'package:responsive_dash_board/utils/app_styles.dart';
 class IncomeDetails extends StatelessWidget {
   const IncomeDetails({super.key});
 
-  static const List<IncomeChartModel>items = const [
+  static const List<IncomeChartModel>items =  [
     IncomeChartModel(
       title: "Design service",
       color: Color(0xFF208BC7),
