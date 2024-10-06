@@ -10,11 +10,14 @@ class MyCardsPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpandablePageView.builder(
+      
       controller: pageController,
       scrollDirection: Axis.horizontal,
       itemCount: 3,
-      itemBuilder: (context,index){
-        return MyCard();
+      itemBuilder: (context, index) {
+        return MyCard(
+          color: index == 1 ? const Color(0xFF064060) : null,
+        );
       },
     );
   }

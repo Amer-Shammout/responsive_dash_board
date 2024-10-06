@@ -9,11 +9,11 @@ class FilterOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: Color(0xFFF1F1F1)),
+          side: const BorderSide(width: 1, color: Color(0xFFF1F1F1)),
           borderRadius: BorderRadius.circular(12),
         ),
       ),
@@ -21,14 +21,14 @@ class FilterOptions extends StatelessWidget {
         children: [
           Text(
             'Monthly',
-            style: AppStyles.styleMedium16,
+            style: AppStyles.styleMedium16(context),
           ),
-          SizedBox(
+          const SizedBox(
             width: 18,
           ),
           Transform.rotate(
             angle: -1.57079633,
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios_new_outlined,
               size: 24,
               color: Color(0xff064061),

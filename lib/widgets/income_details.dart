@@ -1,11 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/models/income_chart_model.dart';
-import 'package:responsive_dash_board/utils/app_styles.dart';
+import 'package:responsive_dash_board/widgets/item_details.dart';
 
 class IncomeDetails extends StatelessWidget {
   const IncomeDetails({super.key});
 
-  static const List<IncomeChartModel>items =  [
+  static const List<IncomeChartModel> items = [
     IncomeChartModel(
       title: "Design service",
       color: Color(0xFF208BC7),
@@ -30,45 +32,27 @@ class IncomeDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: items.length,
-      shrinkWrap: true,
-      itemBuilder: (context,index){
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 12.0),
-          child: ItemDetails(incomeChartModel: items[index]),
-        );
-      },
-    );
-  }
-}
-
-class ItemDetails extends StatelessWidget {
-  const ItemDetails({super.key, required this.incomeChartModel});
-
-  final IncomeChartModel incomeChartModel;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Container(
-        width: 12,
-        height: 12,
-        decoration: ShapeDecoration(
-          color: incomeChartModel.color,
-          shape: const OvalBorder(),
-        ),
-      ),
-      title: Text(
-        incomeChartModel.title!,
-        style: AppStyles.styleRegular16,
-      ),
-      trailing: Text(
-        '${incomeChartModel.value}%',
-        style: AppStyles.styleMedium16.copyWith(
-          color: const Color(0xFF208CC8),
-        ),
+    log(MediaQuery.sizeOf(context).width.toString());
+    return Column(
+      children: List.generate(
+        items.length,
+        (index) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 12.0),
+            child: ItemDetails(incomeChartModel: items[index]),
+          );
+        },
       ),
     );
+    // ListView.builder(
+    //   itemCount: items.length,
+    //   shrinkWrap: true,
+    //   itemBuilder: (context,index){
+    //     return Padding(
+    //       padding: const EdgeInsets.only(bottom: 12.0),
+    //       child: ItemDetails(incomeChartModel: items[index]),
+    //     );
+    //   },
+    // );
   }
 }

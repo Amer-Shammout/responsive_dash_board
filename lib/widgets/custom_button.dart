@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
           onPressed: () {},
           child: Text(
             'Send Money',
-            style: AppStyles.styleSemiBold18,
+            style: AppStyles.styleSemiBold18(context),
           )),
     );
   }
@@ -43,7 +43,7 @@ class CustomTextButton extends StatelessWidget {
         onPressed: () {},
         child: Text(
           'Add more details',
-          style: AppStyles.styleSemiBold18.copyWith(
+          style: AppStyles.styleSemiBold18(context).copyWith(
             color: Color(0xFF4EB7F2),
           ),
         ),

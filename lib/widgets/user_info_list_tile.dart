@@ -5,8 +5,9 @@ import 'package:responsive_dash_board/utils/app_styles.dart';
 
 class UserInfoListTile extends StatelessWidget {
   const UserInfoListTile({
-    super.key, required this.user,
-    });
+    super.key,
+    required this.user,
+  });
 
   final UserInfoModel user;
 
@@ -18,13 +19,21 @@ class UserInfoListTile extends StatelessWidget {
       child: Center(
         child: ListTile(
           leading: SvgPicture.asset(user.image),
-          title: Text(
-            user.title,
-            style: AppStyles.styleSemiBold16,
+          title: FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: AlignmentDirectional.centerStart,
+            child: Text(
+              user.title,
+              style: AppStyles.styleSemiBold16(context),
+            ),
           ),
-          subtitle: Text(
-            user.subTitle,
-            style: AppStyles.styleRegular12,
+          subtitle: FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: AlignmentDirectional.centerStart,
+            child: Text(
+              user.subTitle,
+              style: AppStyles.styleRegular12(context),
+            ),
           ),
         ),
       ),
